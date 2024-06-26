@@ -50,16 +50,36 @@ function gradeQuiz(candidateAnswers) {
 
   for (let i = 0; i < questions.length; i++){
 
-  if (candidateAnswers[i] == ""){
-    console.log(`\nYou did not answer question ${i+1}.\n`);
+    if (candidateAnswers[i] == ""){
+      console.log(`\nYou did not answer question ${i+1}.\n`);
+    }
+    else {
+      console.log(`\nQuestion ${i+1}'s answer was ${correctAnswers[i]}: You answered ${candidateAnswers[i]}\n`);
+    }
+
+  }
+
+  //check candidate answers againts correct answers
+
+  let correctAs = 0
+  
+  for (let i = 0; i < candidateAnswers.length; i++){
+    if (correctAnswers[i].toLowerCase() == candidateAnswers[i].toLowerCase()){
+      correctAs++;
+    }
+  }
+
+  
+  let grade = (correctAs/correctAnswers.length) * 100;  //TODO 3.2 use this variable to calculate the candidates score.
+
+  console.log(`You have received ${grade}% on this quiz.`);
+
+  if (grade < 80) {
+    console.log(`You have failed this test. Please try again!`)
   }
   else {
-    console.log(`\nQuestion ${i+1}'s answer was ${correctAnswers[i]}: You answered ${candidateAnswers[i]}\n`);
+    console.log(`Congrats on passing!`)
   }
-
-  }
-
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
 
 
   return grade;
