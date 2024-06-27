@@ -51,10 +51,16 @@ function gradeQuiz(candidateAnswers) {
   for (let i = 0; i < questions.length; i++){
 
     if (candidateAnswers[i] == ""){
-      console.log(`\nYou did not answer question ${i+1}.\n`);
+      console.log(`\nYou did not answer questioncorrectAnswers[i].toLowerCase() == candidateAnswers[i].toLowerCase() ${i+1}.\n`);
     }
     else {
-      console.log(`\nQuestion ${i+1}'s answer was ${correctAnswers[i]}: You answered ${candidateAnswers[i]}\n`);
+      console.log(`\nQuestion ${i+1}'s answer was ${correctAnswers[i]}: You answered ${candidateAnswers[i]}`);
+      if (correctAnswers[i].toLowerCase() == candidateAnswers[i].toLowerCase()){
+        console.log("This is correct!\n");
+      }
+      else{
+        console.log("This is not correct.\n");
+      }
     }
 
   }
